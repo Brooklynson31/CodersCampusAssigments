@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type = "text/css" href = "style/style.css">
+<script src="javascript/jquery.js"></script>
+<script type ="text/javascript">
+
+	$(function () {
+		$("#login-button").click(function () {
+			login();
+			});
+		$("#password").keypress(function(event) {
+		if(event.which == 13 || event.keyCode == 13){
+			login();
+			}
+			console.log(event)
+			});
+	
+	$("#submitBtn").click(function () {
+		sessionStorage.username = $("#username").val();
+		sessionStorage.password = $("#password").val();
+		sessionStorage.email = $("#email").val();
+		sessionStorage.reference = $("input[name = 'reference']:checked").val();
+		sessionStorage.termsofService = $("#termsofService").is(":checked");
+		sessionStorage.planType = $("#planType").find(":selected").text();
+		$("#userform").submit();
+	});
+	
+	});
+  
+
+function login() {
+	
+	console.log("we have clicked the login button");
+	var username = $("#username").val();
+	var password = $("#password").val();
+	
+	if (username.length < 6){
+		alert("you have entered an invalid username");
+	}
+	if (password.length < 8){
+		alert("you have entered an invalid password");
+	}
+}
+
+
+</script>
+<title>Mike's Website</title>
+</head>
+
+<body>
+<h1 align="center"> User Login</h1>
+	<div class = "login-div">
+		<form id="userform" action="form_submit.html" method="get">
+		<table>
+		
+			<tr>
+				<td>Username: </td>
+				<td><input type="text" id="username"/> </td>
+			</tr>	
+			
+			<tr>
+				<td>Password: </td>
+				<td><input type="password" id="password" />  </td>
+			</tr>	
+			
+			<tr>
+				<td> Email:</td>
+				<td><input type="email" id="email"></input></td>
+			</tr>
+			
+			<tr>
+				<td>How'd you<br/> hear about us?</td>
+				<td>
+				<input type="radio" name="reference" id="yahoo" value ="google">  
+				<label for = "yahoo" >yahoo</label> <br/>
+				<input type="radio" name="reference" id="google" value ="google">   
+				<label for = "google" >google</label> <br/>
+				<input type="radio" name="reference" id="facebook" value ="facebook"> 
+				<label for = "facebook" >facebook</label><br/>
+				<input type="radio" name="reference" id="twitter" value ="twitter"> 
+				<label for = "twitter" >twitter</label><br/>
+				</td>
+			</tr>	
+			
+			<tr>
+				<td>Choose a Plan <br/> Type </td>
+				<td><select id ="planType">
+				<option value ="" ></option>
+				<option value ="Plan 1" >Plan1</option>
+				<option value ="Plan 2" >Plan2</option>
+				<option value ="Plan 3" >Plan3</option>
+				</select></td>
+				
+			</tr>	
+			
+			<tr>
+				<td> Do You Accept <br/> Terms of service? </td>
+				<td><input type="checkbox" id = "termsofService" value = "yes"/>
+				<label for = "termsofService">I agree</label>
+			</tr>
+			<tr>
+				<td></td>
+				<td> <input type="button" value="Login" id="login-button"/> </td>
+			</tr>
+			<tr>
+				<td><input type="button" id = "submitBtn" value = "submit form"/> </td>
+			</tr>	
+		</table>
+		</form>
+	</div>
+</body>
+</html>

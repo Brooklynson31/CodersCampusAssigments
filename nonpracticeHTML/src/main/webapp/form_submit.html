@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="javascript/jquery.js"></script>
+<script type ="text/javascript">
+$(function () {
+
+	$("#username").html(sessionStorage.username);
+	$("#password").html(sessionStorage.password);
+	$("#email").html(sessionStorage.email);
+	$("#reference").html(sessionStorage.reference);
+	$("#termsofService").html(sessionStorage.termsofService);
+	$("#planType").html(sessionStorage.planType);
+});
+
+</script>
+<title>Submit Page</title>
+</head>
+<body>
+<h1>Forms Results</h1>
+Username: <span id = "username"></span><br/>
+Password: <span id = "password"></span><br/>
+Email: <span id = "email"></span><br/>
+Reference: <span id = "reference"></span><br/>
+Terms of Service <span id = "termsofService"></span><br/>
+Plan Type: <span id = "planType"></span><br/>
+
+</body>
+</html>
